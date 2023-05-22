@@ -6,9 +6,15 @@ import 'package:cashwise/pages/incomes.dart';
 import 'package:cashwise/pages/wallet.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 void main() async {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((value) => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -113,42 +119,42 @@ class _MyHomePageStateState extends State<MyHomePageState> {
                 pageController: _pageController,
                 bottomBarItems: [
                   BottomBarItem(
-                    inActiveItem: Icon(
-                      Icons.home,
+                    inActiveItem: FaIcon(
+                      FontAwesomeIcons.house,
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
-                    activeItem: Icon(
-                      Icons.home,
+                    activeItem: FaIcon(
+                      FontAwesomeIcons.house,
                       color: Theme.of(context).colorScheme.background,
                     ),
                   ),
                   BottomBarItem(
-                    inActiveItem: Icon(
-                      Icons.wallet,
+                    inActiveItem: FaIcon(
+                      FontAwesomeIcons.wallet,
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
-                    activeItem: Icon(
-                      Icons.wallet,
+                    activeItem: FaIcon(
+                      FontAwesomeIcons.wallet,
                       color: Theme.of(context).colorScheme.background,
                     ),
                   ),
                   BottomBarItem(
-                    inActiveItem: Icon(
-                      Icons.attach_money_rounded,
+                    inActiveItem: FaIcon(
+                      FontAwesomeIcons.dollarSign,
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
-                    activeItem: Icon(
-                      Icons.attach_money_rounded,
+                    activeItem: FaIcon(
+                      FontAwesomeIcons.dollarSign,
                       color: Theme.of(context).colorScheme.background,
                     ),
                   ),
                   BottomBarItem(
-                    inActiveItem: Icon(
-                      Icons.insert_chart_outlined_outlined,
+                    inActiveItem: FaIcon(
+                      FontAwesomeIcons.chartColumn,
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
-                    activeItem: Icon(
-                      Icons.handshake,
+                    activeItem: FaIcon(
+                      FontAwesomeIcons.chartColumn,
                       color: Theme.of(context).colorScheme.background,
                     ),
                   ),

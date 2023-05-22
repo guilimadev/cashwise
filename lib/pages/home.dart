@@ -3,6 +3,7 @@
 import 'package:cashwise/utils/credit_card.dart';
 import 'package:cashwise/utils/feed.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -28,15 +29,18 @@ class _HomeState extends State<Home> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 60.0, left: 60, right: 60, bottom: 30),
+                    top: 60.0, left: 48, right: 48, bottom: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.menu,
-                      color: Colors.white,
+                    FaIcon(
+                      FontAwesomeIcons.bars,
+                      color: Theme.of(context).colorScheme.onBackground,
                     ),
-                    Icon(Icons.person),
+                    FaIcon(
+                      FontAwesomeIcons.user,
+                      color: Theme.of(context).colorScheme.onBackground,
+                    ),
                   ],
                 ),
               ),

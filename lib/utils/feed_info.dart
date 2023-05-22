@@ -11,9 +11,9 @@ class FeedInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height * 0.12,
+      height: size.height * 0.14,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(
@@ -33,9 +33,12 @@ class FeedInfo extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleSmall),
             ],
           ),
-          Text(
-            "-\$15.00",
-            style: Theme.of(context).textTheme.titleMedium,
+          Padding(
+            padding: const EdgeInsets.only(left: 48.0),
+            child: Text(
+              "-\$15.00",
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
           )
         ],
       ),

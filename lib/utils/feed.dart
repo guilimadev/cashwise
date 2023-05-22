@@ -10,7 +10,7 @@ class Feed extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height * 0.45,
+      height: size.height * 0.40,
       child: SingleChildScrollView(
         child: Column(
           children: [

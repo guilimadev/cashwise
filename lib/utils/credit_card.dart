@@ -20,7 +20,7 @@ class _CreditCardState extends State<CreditCard> {
             width: MediaQuery.of(context).size.width * 0.25,
             decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.onBackground,
-                borderRadius: BorderRadius.all(Radius.circular(60))),
+                borderRadius: BorderRadius.all(Radius.elliptical(28, 38))),
             child: Padding(
               padding: const EdgeInsets.all(36.0),
               child: Column(
