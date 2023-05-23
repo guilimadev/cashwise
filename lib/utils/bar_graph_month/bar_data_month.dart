@@ -1,13 +1,14 @@
-import 'package:cashwise/utils/bar_graph/individual_bar.dart';
-import 'package:flutter/material.dart';
+// ignore_for_file: non_constant_identifier_names
 
-class BarData {
+import 'package:cashwise/utils/bar_graph_week/individual_bar_week.dart';
+
+class BarDataMonth {
   final double JanAmount;
   final double FebAmount;
   final double MarAmount;
   final double AprAmount;
 
-  BarData({
+  BarDataMonth({
     required this.JanAmount,
     required this.FebAmount,
     required this.MarAmount,
