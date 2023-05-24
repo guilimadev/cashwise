@@ -2,13 +2,12 @@
 
 import 'package:cashwise/pages/expanses.dart';
 import 'package:cashwise/pages/home.dart';
-import 'package:cashwise/pages/incomes.dart';
+import 'package:cashwise/pages/analysis.dart';
 import 'package:cashwise/pages/wallet.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -84,7 +83,7 @@ class _MyHomePageStateState extends State<MyHomePageState> {
   final List<Widget> _children = [
     Home(),
     WalletPage(),
-    Incomes(),
+    Analysis(),
     Expanses(),
   ];
 
@@ -105,6 +104,7 @@ class _MyHomePageStateState extends State<MyHomePageState> {
     return Scaffold(
         body: PageView(
           controller: _pageController,
+          physics: NeverScrollableScrollPhysics(),
           children:
               List.generate(_children.length, (index) => _children[index]),
         ),
@@ -140,21 +140,21 @@ class _MyHomePageStateState extends State<MyHomePageState> {
                   ),
                   BottomBarItem(
                     inActiveItem: FaIcon(
-                      FontAwesomeIcons.dollarSign,
+                      FontAwesomeIcons.chartColumn,
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
                     activeItem: FaIcon(
-                      FontAwesomeIcons.dollarSign,
+                      FontAwesomeIcons.chartColumn,
                       color: Theme.of(context).colorScheme.background,
                     ),
                   ),
                   BottomBarItem(
                     inActiveItem: FaIcon(
-                      FontAwesomeIcons.chartColumn,
+                      FontAwesomeIcons.dollarSign,
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
                     activeItem: FaIcon(
-                      FontAwesomeIcons.chartColumn,
+                      FontAwesomeIcons.dollarSign,
                       color: Theme.of(context).colorScheme.background,
                     ),
                   ),
@@ -165,6 +165,8 @@ class _MyHomePageStateState extends State<MyHomePageState> {
                       currentpage = 2;
                     } else if (index == 1) {
                       currentpage = 1;
+                    } else if (index == 3) {
+                      currentpage = 3;
                     } else {
                       currentpage = 0;
                     }

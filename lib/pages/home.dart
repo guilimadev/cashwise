@@ -57,7 +57,21 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(
-                height: size.height * 0.01,
+                height: size.height * 0.015,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 36.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Transactions: ',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          color: Colors.white, fontSize: size.height * 0.025),
+                    ),
+                  ],
+                ),
               ),
               Feed(),
             ],

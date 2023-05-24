@@ -10,6 +10,16 @@ class Expanses extends StatefulWidget {
 class _ExpansesState extends State<Expanses> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          width: size.width,
+          height: size.height,
+          decoration:
+              BoxDecoration(color: Theme.of(context).colorScheme.background),
+        ),
+      ),
+    );
   }
 }

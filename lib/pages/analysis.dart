@@ -1,52 +1,21 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
+// ignore_for_file: prefer_const_constructors
 
-import 'dart:io';
-
-import 'package:cashwise/utils/bar_graph_month/bar_graph_month.dart';
-import 'package:cashwise/utils/bar_graph_week/bar_graph_week.dart';
-import 'package:cashwise/utils/bar_graph_year/bar_graph_year.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:cashwise/utils/line_chart_week/line_chart_week.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class WalletPage extends StatefulWidget {
-  const WalletPage({super.key});
+class Analysis extends StatefulWidget {
+  const Analysis({super.key});
 
   @override
-  State<WalletPage> createState() => _WalletPageState();
+  State<Analysis> createState() => _AnalysisState();
 }
 
-class _WalletPageState extends State<WalletPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class _AnalysisState extends State<Analysis> {
   bool isWeekChecked = true;
   bool isMonthChecked = false;
   bool isYearChecked = false;
 
-  List<double> expansesWeekly = [
-    100.0,
-    200.0,
-    150.0,
-    55.5,
-    57.5,
-    75.5,
-    155.5,
-  ];
-
-  List<double> expansesMonthly = [
-    600.0,
-    700.0,
-    450.0,
-    555.5,
-  ];
-  List<double> expansesYearly = [
-    1030.0,
-    2000.0,
-    1050.0,
-  ];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -55,9 +24,8 @@ class _WalletPageState extends State<WalletPage> {
         child: Container(
           width: size.width,
           height: size.height,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.background,
-          ),
+          decoration:
+              BoxDecoration(color: Theme.of(context).colorScheme.background),
           child: Column(
             children: [
               Padding(
@@ -71,7 +39,7 @@ class _WalletPageState extends State<WalletPage> {
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
                     Text(
-                      'Wallet',
+                      'Analytics',
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     FaIcon(
@@ -184,73 +152,12 @@ class _WalletPageState extends State<WalletPage> {
                 ],
               ),
               SizedBox(
-                height: size.height * 0.01,
+                height: size.height * 0.05,
               ),
               SizedBox(
                 height: size.height * 0.3,
-                child: isWeekChecked
-                    ? MyBarGraphWeekly(
-                        weekSummary: expansesWeekly,
-                      )
-                    : isMonthChecked
-                        ? MyBarGraphMonthly(
-                            monthSummary: expansesMonthly,
-                          )
-                        : MyBarGraphYearly(
-                            YearSummary: expansesYearly,
-                          ),
+                child: LineChartWidget(),
               ),
-              SizedBox(
-                height: size.height * 0.05,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: SizedBox(
-                  height: size.height * 0.1,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Expanses',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      FaIcon(
-                        FontAwesomeIcons.arrowTrendDown,
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
-                      Text(
-                        "-\$15.00",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: SizedBox(
-                  height: size.height * 0.1,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Incomes',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      FaIcon(
-                        FontAwesomeIcons.arrowTrendUp,
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
-                      Text(
-                        "\$1500.00",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      )
-                    ],
-                  ),
-                ),
-              )
             ],
           ),
         ),
